@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Охотничий клуб «Северный след»</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #1b1f17;
+      color: #e6e2d3;
+    }
+
+    header {
+      background: url('https://txtrs.ru/textures/camouflage/camouflage-1.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* затемнение фона для читаемости */
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    header div {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #c2b280;
+    }
+
+    nav {
+      background: #2f3a24;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #556b2f;
+    }
+
+    nav a {
+      color: #c2b280;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      padding: 60px 10%;
+    }
+
+    section h2 {
+      color: #b5a76c;
+      border-bottom: 2px solid #556b2f;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #2a2f21;
+      padding: 25px;
+      border: 1px solid #556b2f;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: #343c2a;
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #d2c48c;
+    }
+
+    footer {
+      background: #11140f;
+      text-align: center;
+      padding: 20px;
+      color: #7f8c5a;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background: #556b2f;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #6b8e23;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#about">О клубе</a>
+    <a href="#services">Услуги</a>
+    <a href="#rules">Правила</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+
+  <header>
+    <div>
+      <h1>СЕВЕРНЫЙ СЛЕД</h1>
+      <p>Традиционная охота. Природа. Честь.</p>
+      <button onclick="window.open('https://discord.gg/octothorp-team-s-188610335656247296', '_blank')">
+        Вступить в клуб
+      </button>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>О клубе</h2>
+    <p>
+      Охотничий клуб «Северный след» объединяет людей, уважающих природу,
+      традиции и законную охоту. Мы проводим сезонные выезды, обучение и
+      сопровождаем охотников всех уровней.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Услуги</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Организация охоты</h3>
+        <p>Законные выезды, сопровождение егерей, разрешения.</p>
+      </div>
+      <div class="card">
+        <h3>Обучение</h3>
+        <p>Основы охоты, безопасность, работа с оружием.</p>
+      </div>
+      <div class="card">
+        <h3>Снаряжение</h3>
+        <p>Подбор экипировки и консультации по оружию.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>Наши принципы</h2>
+    <ul>
+      <li>Уважение к природе и животным</li>
+      <li>Строгое соблюдение законов</li>
+      <li>Безопасность превыше всего</li>
+      <li>Сохранение охотничьих традиций</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Контакты</h2>
+    <p>Discord: supermangame</p>
+    <p>Телефон: +7 (148) 822-80-67</p>
+  </section>
+
+  <footer>
+    © 2026 Охотничий клуб «Северный след»
+  </footer>
+
+</body>
+</html>
