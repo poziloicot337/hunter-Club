@@ -3,10 +3,19 @@ body {
   font-family: "Georgia", serif;
   background: #1b1f17;
   color: #e6e2d3;
+  padding-top: 49px; /* высота меню */
 }
 
 /* NAV */
 nav {
+  position: fixed;   /* фиксируем */
+  top: 0;            /* сверху */
+  left: 0;
+  width: 100%;       /* на всю ширину */
+  z-index: 1000;     /* поверх всего */
+
+
+
   background: #2f3a24;
   padding: 15px;
   text-align: center;
@@ -26,7 +35,7 @@ nav a:hover {
 
 /* HEADER */
 header {
-  background: url('https://txtrs.ru/textures/camouflage/camouflage-1.jpg') center/cover no-repeat;
+  background: url('https://txtrs.ru/textures/camouflage/camouflage-1.jpg') center/cover no-repeat;;
   height: 100vh;
   display: flex;
   align-items: center;
