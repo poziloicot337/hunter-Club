@@ -1,17 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Каталог</title>
-    <link rel="stylesheet" href="../styles/catalogs_style.css" />
-  </head>
-  <body>
-    <nav class="main-nav">
-    <a href="https://poziloicot337.github.io/hunter-Club/">Главная</a>
-    <a href="../pages/catalog.html">Каталог</a>
-    <a href="../pages/club.html">Охотничий-клуб</a>
-    <a href="https://poziloicot337.github.io/hunter-Club/#contact">Контакты</a>
-    </nav>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Каталог</title>
+  <link rel="stylesheet" href="../styles/catalogs_style.css">
+</head>
 
-  </body>
+<body>
+
+<nav class="main-nav">
+  <a href="https://poziloicot337.github.io/hunter-Club/">Главная</a>
+  <a href="../pages/catalog.html">Каталог</a>
+  <a href="../pages/club.html">Охотничий-клуб</a>
+  <a href="https://poziloicot337.github.io/hunter-Club/#contact">Контакты</a>
+
+  <button class="cart-btn" onclick="toggleCart()">
+    🛒 Корзина (<span id="cart-count">0</span>)
+  </button>
+</nav>
+
+<div class="catalog-container">
+
+  <h1>Каталог оружия</h1>
+
+  <!-- КАТЕГОРИИ -->
+  <div class="categories">
+    <button onclick="filterCategory('all')">Все</button>
+    <button onclick="filterCategory('pistols')">Пистолеты</button>
+    <button onclick="filterCategory('smg')">ПП</button>
+    <button onclick="filterCategory('rifles')">Штурмовые</button>
+    <button onclick="filterCategory('snipers')">Снайперские</button>
+    <button onclick="filterCategory('shotguns')">Дробовики (1)</button>
+    <button onclick="filterCategory('ammo')">Патроны</button>
+    <button onclick="filterCategory('tickets')">Путевки</button>
+  </div>
+
+  <!-- ТОВАР -->
+  <div class="products-grid">
+
+    <div class="product-card" data-category="shotguns">
+      <div class="product-image">
+        <img src="https://cdn11.bigcommerce.com/s-jknbxjypyy/images/stencil/1280x1280/products/1559/3788/CZBobwhiteG2-1__49275.1743876905.png?c=1">
+      </div>
+
+      <h3>CZ Bobwhite G2</h3>
+      <p class="price">85000 руб.</p>
+
+      <button onclick="addToCart('CZ Bobwhite G2',85000)">
+        Купить
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🛒 КОРЗИНА (overlay) -->
+<div class="cart-overlay" id="cart">
+  <div class="cart-panel">
+
+    <div class="cart-header">
+      <h2>Корзина</h2>
+      <button onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+      <p>Итого: <span id="cart-total">0</span> руб.</p>
+      <button onclick="checkout()">Оформить</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let cart = [];
+
+function toggleCart() {
+  document.getElementById('cart').classList.toggle('open');
+}
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  updateCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const list = document.getElementById('cart-items');
+  const count = document.getElementById('cart-count');
+  const total = document.getElementById('cart-total');
+
+  list.innerHTML = "";
+
+  let sum = 0;
+
+  cart.forEach((item, i) => {
+    sum += item.price;
+
+    list.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>${item.price} руб.</span>
+        <button onclick="removeItem(${i})">✖</button>
+      </div>
+    `;
+  });
+
+  count.innerText = cart.length;
+  total.innerText = sum;
+}
+
+function checkout() {
+  alert("Заказ оформлен!");
+  cart = [];
+  updateCart();
+}
+
+function filterCategory(category) {
+  const items = document.querySelectorAll('.product-card');
+
+  items.forEach(el => {
+    const cat = el.dataset.category;
+
+    if (category === 'all' || cat === category) {
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
 </html>
