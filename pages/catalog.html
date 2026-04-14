@@ -98,7 +98,7 @@ function sendOrder() {
 
   cart.forEach(item => {
     total += item.price;
-    itemsText += `• ${item.name} x1 - ${item.price} руб.\n`;
+    itemsText += `• ${item.name} - ${item.price} руб.\n`;
   });
 
   const timeAgo = "только что"; // можно улучшить позже
