@@ -96,17 +96,20 @@ body {
 /* кнопка */
 .product-card button {
   margin-top: 10px;
-  background: var(--green-main);
+  background: linear-gradient(135deg, var(--green-main), var(--green-hover));
   border: none;
-  padding: 8px;
+  padding: 10px;
   color: white;
   width: 100%;
   cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
   transition: 0.3s;
 }
 
 .product-card button:hover {
-  background: var(--green-hover);
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(107, 142, 35, 0.5);
 }
 
 /* =========================
