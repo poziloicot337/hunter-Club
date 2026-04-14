@@ -206,6 +206,34 @@ body {
   padding-bottom: 20px;
 }
 
+
+.cart-footer input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--green-main);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* при фокусе */
+.cart-footer input:focus {
+  border-color: var(--green-hover);
+  box-shadow: 0 0 10px rgba(107, 142, 35, 0.4);
+  transform: scale(1.02);
+}
+
+/* placeholder */
+.cart-footer input::placeholder {
+  color: rgba(230, 226, 211, 0.6);
+}
+
+
+
 /* анимация */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.98); }
