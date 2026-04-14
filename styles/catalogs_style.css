@@ -131,6 +131,7 @@ body {
 }
 
 .cart-panel {
+  padding-bottom: 30px;
   position: absolute;
   right: 0;
   top: 0;
