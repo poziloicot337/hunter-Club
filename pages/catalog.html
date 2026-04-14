@@ -86,6 +86,11 @@ function toggleCart() {
 }
 
 function addToCart(name, price) {
+  if (cart.length >= 5) {
+    alert("Можно добавить не более 5 товаров!");
+    return;
+  }
+  
   cart.push({ name, price });
   updateCart();
 }
