@@ -157,11 +157,15 @@ body {
   padding-bottom: 10px;
 }
 
-/* items */
-.cart-item {
-  #cart-items {
+/* items list */
+#cart-items {
   flex: 1;
   overflow-y: auto;
+  margin: 10px 0;
+}
+
+/* один товар */
+.cart-item {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
