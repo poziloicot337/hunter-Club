@@ -156,6 +156,9 @@ body {
 
 /* items */
 .cart-item {
+  #cart-items {
+  flex: 1;
+  overflow-y: auto;
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
@@ -164,12 +167,15 @@ body {
 /* footer */
 .cart-footer {
   margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--green-main);
 }
 
 .cart-footer button {
   width: 100%;
   padding: 10px;
   background: var(--green-main);
+  margin-top: 10px;
   border: none;
   color: white;
   cursor: pointer;
