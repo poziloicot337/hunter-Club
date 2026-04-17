@@ -35,7 +35,7 @@ nav a:hover {
 
 /* HEADER */
 header {
-  background: url('https://txtrs.ru/textures/camouflage/camouflage-1.jpg') center/cover no-repeat;;
+  background-image: url('../images/backgraund.png') center/cover no-repeat;;
   height: 100vh;
   display: flex;
   align-items: center;
