@@ -101,16 +101,12 @@ function sendOrder() {
     itemsText += `• ${item.name} - ${item.price} руб.\n`;
   });
 
-  const orderTime = Date.now();
-  const timeAgo = getTimeAgo(orderTime);
-
   const message = `
 <@&${ROLE_ID}>
 🎯 **НОВЫЙ ЗАКАЗ ОТ ** `${username}`
 Товары:
 ${itemsText}
-💰 Общая сумма: ${total} руб.
-⏱ Время: ${timeAgo}
+Общая сумма: ${total} руб.
 `;
 
   fetch(DISCORD_WEBHOOK_URL, {
