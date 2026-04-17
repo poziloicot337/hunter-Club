@@ -23,4 +23,5 @@ body {
 
 .main-nav a:hover {
   color: #ffffff;
+  transform: scale(1.1);
 }
