@@ -103,7 +103,7 @@ function sendOrder() {
 
   const message = `
 <@&${ROLE_ID}>
-🎯 **НОВЫЙ ЗАКАЗ ОТ ** `${username}`
+🎯 **НОВЫЙ ЗАКАЗ ОТ ${username} **
 Товары:
 ${itemsText}
 Общая сумма: ${total} руб.
@@ -124,24 +124,6 @@ ${itemsText}
   cart = [];
   updateCart();
 }
-
-function getTimeAgo(orderTime) {
-  const diffMinutes = Math.floor((Date.now() - orderTime) / 60000);
-
-  if (diffMinutes <= 0) return "только что";
-  if (diffMinutes === 1) return "1 минуту назад";
-  if (diffMinutes < 5) return diffMinutes + " минуты назад";
-  if (diffMinutes < 60) return diffMinutes + " минут назад";
-
-  const hours = Math.floor(diffMinutes / 60);
-  if (hours === 1) return "1 час назад";
-  if (hours < 5) return hours + " часа назад";
-
-  return hours + " часов назад";
-}
-
-  
-
 
   
   document.getElementById('cart').addEventListener('click', function(e) {
