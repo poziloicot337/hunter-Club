@@ -25,6 +25,11 @@ body {
   border-bottom: 1px solid var(--green-main);
 }
 
+.main-nav a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
 .main-nav a {
   color: var(--sand-main);
   margin: 0 15px;
