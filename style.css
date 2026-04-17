@@ -35,7 +35,7 @@ nav a:hover {
 
 /* HEADER */
 header {
-  background: src('../images/backgraund.png') center/cover no-repeat;;
+  background-image: url('../images/backgraund.png') center/cover no-repeat;;
   height: 100vh;
   display: flex;
   align-items: center;
