@@ -67,11 +67,17 @@
     <div id="cart-items"></div>
 
     <div class="cart-footer">
+
   <p>Итого: <span id="cart-total">0</span> руб.</p>
 
-  <input type="text" id="discordName" placeholder="Введите Discord юзернейм">
+  <div class="inputs-row">
+    <input type="text" id="discordName" placeholder="Введите Discord юзернейм">
+    <input type="text" id="fullName" placeholder="Введите ваше Имя и Фамилию">
+  </div>
 
-  <button onclick="sendOrder()">Отправить заказ</button>
+  <button class="order-btn" onclick="sendOrder()">
+    Отправить заказ
+  </button>
 </div>
 
   </div>
@@ -87,10 +93,17 @@ const ROLE_ID = "1494662752013385749";
 
 function sendOrder() {
   const username = document.getElementById("discordName").value;
+  const fullName = document.getElementById("fullName").value;
 
   if (!username) {
     alert("Введите Discord юзернейм!");
     return;
+  }
+
+  if (!fullName) {
+    alert("Введите имя и фамилию!");
+    return;
+
   }
 
   if (cart.length === 0) {
@@ -108,7 +121,9 @@ function sendOrder() {
 
   const message = `
 <@&${ROLE_ID}>
-🎯 **НОВЫЙ ЗАКАЗ ОТ ${username} **
+🎯 **НОВЫЙ ЗАКАЗ**
+Discord: ${username}
+ФИО: ${fullName}
 Товары:
 ${itemsText}
 Общая сумма: ${total} руб.
@@ -130,12 +145,6 @@ ${itemsText}
   updateCart();
 }
 
-  
-  document.getElementById('cart').addEventListener('click', function(e) {
-  if (e.target === this) {
-    toggleCart();
-  }
-});
 let cart = [];
 
 function toggleCart() {
@@ -147,7 +156,7 @@ function addToCart(name, price) {
     alert("Можно добавить не более 5 товаров!");
     return;
   }
-  
+
   cart.push({ name, price });
   updateCart();
 }
@@ -203,5 +212,7 @@ function filterCategory(category) {
 }
 </script>
 
+</body>
+</html>
 </body>
 </html>
