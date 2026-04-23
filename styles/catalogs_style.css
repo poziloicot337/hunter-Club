@@ -23,11 +23,9 @@ body {
   padding: 15px;
   text-align: center;
   border-bottom: 1px solid var(--green-main);
-}
-
-.main-nav a:hover {
-  color: #ffffff;
-  transform: scale(1.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .main-nav a {
@@ -36,6 +34,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  display: inline-block;
+}
+
+.main-nav a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .cart-btn {
@@ -45,12 +49,20 @@ body {
   padding: 8px 12px;
   cursor: pointer;
   margin-left: 20px;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: var(--green-hover);
+  transform: scale(1.05);
 }
 
 /* КАТАЛОГ */
 .catalog-container {
   padding: 30px;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* категории */
@@ -89,6 +101,7 @@ body {
 
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* картинка */
@@ -99,7 +112,7 @@ body {
   border-radius: 8px;
 }
 
-/* кнопка */
+/* кнопка товара */
 .product-card button {
   margin-top: 10px;
   background: linear-gradient(135deg, var(--green-main), var(--green-hover));
@@ -119,16 +132,24 @@ body {
 }
 
 /* =========================
-   🛒 OVERLAY КОРЗИНА
+   🛒 КОРЗИНА (fullscreen)
 ========================= */
 
 .cart-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: rgba(0,0,0,0.85);
+
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-overlay.open {
@@ -137,41 +158,47 @@ body {
 }
 
 .cart-panel {
-  padding-bottom: 30px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 320px;
-  height: 100%;
+  width: 90%;
+  max-width: 700px;
+  height: 80%;
+
   background: #11140f;
-  padding: 15px;
-  transform: translateX(100%);
-  transition: 0.3s;
+  border-radius: 16px;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
+
+  transform: scale(0.9);
+  transition: 0.3s;
 }
 
 .cart-overlay.open .cart-panel {
-  transform: translateX(0);
+  transform: scale(1);
 }
 
 /* header */
 .cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  text-align: center;
   border-bottom: 1px solid var(--green-main);
   padding-bottom: 10px;
 }
 
-/* items list */
+.cart-header button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* список */
 #cart-items {
   flex: 1;
   overflow-y: auto;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
-/* один товар */
+/* товар */
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -181,43 +208,27 @@ body {
 /* footer */
 .cart-footer {
   margin-top: auto;
-  padding-top: 10px;
+  padding: 10px 0 20px;
   border-top: 1px solid var(--green-main);
+  text-align: center;
 }
 
-.cart-footer button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, var(--green-main), var(--green-hover));
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 15px;
-  transition: 0.3s;
+/* поля */
+.inputs-row {
+  display: flex;
+  gap: 10px;
   margin-top: 10px;
 }
 
-.cart-footer button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 12px rgba(107, 142, 35, 0.6);
+.inputs-row input {
+  flex: 1;
 }
 
-.cart-footer button:active {
-  transform: scale(0.98);
-}
-
-.cart-footer {
-  padding-bottom: 20px;
-}
-
-
+/* input */
 .cart-footer input {
   width: 100%;
   box-sizing: border-box;
   padding: 10px 12px;
-  margin-top: 10px;
   background: var(--bg-card);
   border: 1px solid var(--green-main);
   border-radius: 8px;
@@ -227,22 +238,57 @@ body {
   transition: 0.3s;
 }
 
-/* при фокусе */
 .cart-footer input:focus {
   border-color: var(--green-hover);
   box-shadow: 0 0 10px rgba(107, 142, 35, 0.4);
   transform: scale(1.02);
 }
 
-/* placeholder */
 .cart-footer input::placeholder {
   color: rgba(230, 226, 211, 0.6);
 }
 
+/* кнопка заказа */
+.order-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--green-main), var(--green-hover));
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
+.order-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(107, 142, 35, 0.6);
+}
+
+.order-btn:active {
+  transform: scale(0.97);
+}
+
+/* адаптив */
+@media (max-width: 600px) {
+  .inputs-row {
+    flex-direction: column;
+  }
+}
 
 /* анимация */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
